@@ -1,0 +1,34 @@
+3 APIs
+1) http://localhost:8080/products/welcome ==> accessible for all
+2) http://localhost:8080/products/all ==> accessible for user with role ADMIN
+3) http://localhost:8080/products/{id:5} ==> accessible for user with role USER
+
+============= create users =============
+
+Endpoint: http://localhost:8080/users/new
+
+{
+    "name": "bhavin",
+    "email": "bhavin@example.com",
+    "password": "pwd2",
+    "roles": "ROLE_ADMIN"
+}
+
+{
+    "name": "kripal",
+    "email": "kripal@example.com",
+    "password": "pwd1",
+    "roles": "ROLE_USER"
+}
+
+============= Generate JWT Token =============
+http://localhost:8080/users/authenticate
+
+{
+    "username": "bhavin",
+    "password": "pwd1"
+}
+
+O/P: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiaGF2aW4iLCJpYXQiOjE3MzkwOTI1NDAsImV4cCI6MTczOTA5NDM0MH0.hNyylZCMagFK1XQym0FsiezdMd6brT0drH3oo7-5MXU
+
+put above token as Bearer Token in Authentication and access main 3 endpoints as per role of user
